@@ -1,18 +1,16 @@
 import React from 'react'
-import { box } from '../components/3dobject.js'
-import {useRef, useEffect} from "react"
 import HeroText from '../components/HeroText.jsx'
 import Hero from '../section/Hero.jsx'
+import Contact from '../section/Contact.jsx'
+import About from '../section/About.jsx'
 
 const Home = () => {
-    // const containerRef = useRef(null)
-    // useEffect(()=>{
-    //     box({containerRef: containerRef})
-    // }, [])
   return (
-    <div className=" min-h-screen bg-black min-h-screen z-0">
+    <div className="h-[2600px] bg-black z-0">
         <Hero />
         <HeroText />
+        <Contact />
+        <About />
     </div>
   )
 }
