@@ -10,3 +10,19 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+** Progress ***
+[X] Website name and icon
+[X] Create Navigation
+[] Manage Routing for nav
+
+[X] Create Hero section
+[] Create About section: Experience
+    Split the experience into 2, Full Stack experience and previous work
+[] Create Contact section
+[] Create Work section: List of project
+[] Create Dark mode (?)
+
+[] Create functionality to contact with mail
+
+[] Performance optimization, check with lighthouse

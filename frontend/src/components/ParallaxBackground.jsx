@@ -17,7 +17,7 @@ const ParallaxBackground = () => {
             scrollTrigger: {
                 trigger: "#herobg",
                 start: "top top",
-                end: "1000px",
+                end: "800px",
                 scrub: true,
             }
         })

@@ -6,7 +6,7 @@ import About from '../section/About.jsx'
 
 const Home = () => {
   return (
-    <div className="h-[2600px] bg-black z-0">
+    <div className="h-auto bg-black z-0">
         <Hero />
         <HeroText />
         <Contact />
