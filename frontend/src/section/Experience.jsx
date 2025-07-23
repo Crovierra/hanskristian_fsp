@@ -2,7 +2,7 @@ import React from 'react'
 
 const Experience = () => {
   return (
-    <section>
+    <section className="bg-[#f5f5f5] min-h-screen">
         {/* Kasih sticky roll reveal buat kasih timeline pembelajaran */}
     </section>
   )

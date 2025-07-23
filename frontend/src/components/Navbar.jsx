@@ -9,7 +9,7 @@ const Navbar = () => {
   ]
   const langList = ["ID", "EN"]
   return (
-    <nav className="flex flex-row fixed top-3 left-3 right-3 px-[30px] bg-none backdrop-blur-xs text-white justify-between items-center h-[40px] shadow-lg z-50 rounded-lg">
+    <nav className="flex flex-row fixed top-3 left-3 right-3 px-[30px] bg-none backdrop-blur-xs text-white justify-between items-center h-[40px] shadow-lg z-50 rounded-lg" id="navbar">
         <p href="/" className="">Hans Kristian</p>
         <div className="flex flex-row gap-2 pl-[60px]">
             {langList.map(item => {
