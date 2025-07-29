@@ -22,7 +22,7 @@ const SocialNav = () => {
         <ul className="flex flex-row gap-4 w-[150px] bg-none backdrop-blur-xl justify-center items-center rounded-lg py-[4px] shadow-md">
             {socialIcon.map((item, index) => {
               return (
-                <li key={index}><a href={item.link} target="_blank"><img src={item.asset} className="w-8 h-8 transform-all duration-300 hover:translate-y-[-3px] hover:grayscale-0 grayscale-100" alt={item.name}/></a></li>
+                <li key={index}><a href={item.link} target="_blank"><img src={item.asset} className="w-[30px] h-[30px] transform-all duration-300 hover:translate-y-[-3px] hover:grayscale-0 grayscale-100" alt={item.name}/></a></li>
               )
             })}
         </ul>

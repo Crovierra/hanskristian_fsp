@@ -5,7 +5,7 @@ import {useEffect} from "react"
 
 const ParallaxBackground = () => {
     const parallaxImage = [
-    { src: "/hero_xl.webp", alt: "Parallax first layer", z_index: "z-0", loadingType: "", id:"herobg", fetchPrio: "low"},
+    { src: "/hero-bg.webp", alt: "Parallax first layer", z_index: "z-0", loadingType: "eager", id:"herobg", fetchPrio: "high"}, 
     { src: "/bigrock_xl.webp", alt: "Parallax second layer", z_index: "z-1", loadingType: "lazy", id:"bigrock", fetchPrio: "low"},
     { src: "/rock_xl.webp", alt: "Parallax third layer", z_index: "z-2 bottom-2", loadingType: "lazy", id:"rock", fetchPrio: "low"},
   ]
@@ -53,7 +53,7 @@ const ParallaxBackground = () => {
             <img
             key={index}
             src={item.src}
-            className={`w-full min-w-[400px] h-auto object-cover absolute ${item.z_index}`}
+            className={`w-full min-w-[600px] min-h-[800px] object-cover absolute ${item.z_index}`}
             loading={item.loadingType}
             alt={item.alt}
             id={item.id}
