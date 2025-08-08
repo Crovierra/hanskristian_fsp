@@ -47,7 +47,7 @@ const ParallaxBackground = () => {
     },[])
 
   return (
-    <div className="absolute inset-0 bg-black/40">
+    <div className="max-w-screen absolute inset-0 bg-black/40">
         {parallaxImage.map((item, index) => {
           return (
             <img

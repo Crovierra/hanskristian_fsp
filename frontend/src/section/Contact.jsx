@@ -2,7 +2,6 @@ import React from 'react'
 import { ShootingStars } from '../components/Stars'
 import {gsap} from "gsap"
 import {ScrollTrigger} from "gsap/ScrollTrigger"
-import {useEffect} from "react"
 import { useMail } from '../hooks/useMail'
 
 
@@ -22,10 +21,10 @@ const Contact = () => {
     
     
   return (
-    <section className="flex flex-col min-h-screen bg-[#f5f5f5] w-full py-[2%] justify-center" id="contact_section">
+    <section className="flex flex-col min-h-screen bg-[#f5f5f5] w-full py-[2%] justify-center max-sm:pb-[150px]" id="contact_section">
     <div className="flex flex-row max-sm:flex-col h-auto px-[10%] gap-4">
         <div className="w-[50%] max-sm:w-full h-full z-2 flex flex-col text-[#333333] items-center justify-center px-[10%] max-sm:px-[10px] gap-4">
-            <p className="text-4xl max-sm:text-2xl">Contact me for collaboration</p>
+            <p className="text-4xl max-sm:text-2xl max-sm:text-center">Contact me for collaboration</p>
             <p className="text-lg max-sm:text-md max-sm:text-center">Reach out today to discuss your project needs and start collaborating on something amazing!</p>
         </div>
         <form method="POST" className="flex flex-col w-[50%] max-sm:w-full justify-center z-2">

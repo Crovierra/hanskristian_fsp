@@ -14,14 +14,13 @@ If you are developing a production application, we recommend using TypeScript wi
 ** Progress ***
 [X] Website name and icon
 [X] Create Navigation
-[] Manage Routing for nav
+[X] Manage Routing for nav
 
 [X] Create Hero section
-[] Create About section: Experience
+[X] Create About section: Experience
     Split the experience into 2, Full Stack experience and previous work
-[] Create Contact section
-[] Create Work section: List of project
-[] Create Dark mode (?)
+[X] Create Contact section
+[X] Create Work section: List of project
 
 [] Create functionality to contact with mail
 

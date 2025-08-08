@@ -13,15 +13,15 @@ export const useMail = () => {
     async function sendMail(e){
         e.preventDefault()
         try {
-            // console.log("Mail saved :", mail)
+            console.log("Mail saved :", mail)
             setLoadingMail(true)
-            // const response = await fetch(`${import.meta.url.REACT_VITE_BACKEND_URL}/mail`,{
-            //     method: "POST",
-            //     headers: {"Content-Type" : "application/json"},
-            //     body: JSON.stringify(mail) 
-            // })
+            const response = await fetch(`${import.meta.env.VITE_REACT_BACKEND_URL}/send-mail`,{
+                method: "POST",
+                headers: {"Content-Type" : "application/json"},
+                body: JSON.stringify(mail) 
+            })
 
-            // if(!response.ok) throw new Error(response.message)
+            if(!response.ok) throw new Error(response.message)
             
             setNotification({success: "Message sent"})
             
