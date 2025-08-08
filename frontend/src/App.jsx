@@ -1,6 +1,6 @@
 import './App.css'
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
-import Home from './pages/home.jsx'
+import Home from './pages/Home.jsx'
 import Navbar from './components/Navbar.jsx'
 import SocialNav from './components/SocialNav.jsx'
 import NotFound from './pages/NotFound.jsx'
