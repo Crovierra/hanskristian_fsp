@@ -40,7 +40,6 @@ const Experience = () => {
                     scrub: true,
                     pin: true,
                 }
-    
             })
     
             animation.add([
@@ -63,14 +62,6 @@ const Experience = () => {
                 }),
                 gsap.to("#mobile_menu", 2, {
                     color: "#333333",
-                    ease: "power2.inOut"
-                }),
-                gsap.to("#mobile_nav_container", 2, {
-                    backgroundColor: "#333333",
-                    ease: "power2.inOut"
-                }),
-                gsap.to("#mobile_nav_list", 2, {
-                    color: "#f5f5f5",
                     ease: "power2.inOut"
                 }),
                 gsap.to("#about_overlay_top2", 4, {

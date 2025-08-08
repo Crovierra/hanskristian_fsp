@@ -1,6 +1,8 @@
 import { twMerge } from "tailwind-merge"
 import { AnimatePresence, motion } from "motion/react";
 import React, { createContext, useContext, useEffect, useRef, useState } from "react";
+import {gsap} from "gsap"
+import {ScrollTrigger} from "gsap/ScrollTrigger.js"
 
 const ModalContext = createContext(undefined);
 
@@ -34,19 +36,19 @@ export function Modal({
 export const ModalTrigger = ({
   children,
   className,
-  id
+  setOpen,
+  open
 }) => {
-  const { setOpen, open } = useModal();
   useEffect(() => {
-    console.log("Modal state changed, new status: ", open);
   }, [open]);
   return (
     <button
       className={twMerge(
         "px-4 py-2 rounded-md text-white text-center relative overflow-hidden z-100",
         className
-      ), id={id}}
-      onClick={() => setOpen(true)}>
+      )}
+      onClick={()=> setOpen(true)}
+      id="mobile_menu">
       {children}
     </button>
   );
@@ -54,20 +56,12 @@ export const ModalTrigger = ({
 
 export const ModalBody = ({
   children,
-  className
+  className,
+  open,
+  setOpen
 }) => {
-  const { open } = useModal();
-
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [open]);
 
   const modalRef = useRef(null);
-  const { setOpen } = useModal();
   useOutsideClick(modalRef, () => setOpen(false));
 
   return (
@@ -91,7 +85,7 @@ export const ModalBody = ({
           <motion.div
             ref={modalRef}
             className={twMerge(
-              "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-transparent border-transparent  md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
+              "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-transparent border-transparent md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
               className
             )}
             initial={{
@@ -115,8 +109,9 @@ export const ModalBody = ({
               type: "spring",
               stiffness: 260,
               damping: 15,
-            }}>
-            <CloseIcon />
+            }}
+            >
+            <CloseIcon setOpen={setOpen}/>
             {children}
           </motion.div>
         </motion.div>
@@ -129,8 +124,37 @@ export const ModalContent = ({
   children,
   className
 }) => {
+  useEffect(()=>{
+    function navAnimation(){
+      gsap.registerPlugin(ScrollTrigger)
+      let animate = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#experience_section",
+          start: "top top",
+          end: "400px",
+          scrub: true,
+        }
+      })
+      animate.add([
+        gsap.to("#mobile_nav", 2, {
+          backgroundColor: "#333333",
+          ease: "power2.inOut"
+        }),
+        gsap.to("#mobile_nav_list", 2, {
+          color: "#f5f5f5",
+          ease: "power2.inOut"
+        }),
+        gsap.to("#menu_cross", 2, {
+          color: "#f5f5f5",
+          ease: "power2.inOut"
+        })
+      ])
+    }
+
+    navAnimation()
+  })
   return (
-    <div className={twMerge("flex flex-col flex-1 p-8 md:p-10", className)}>
+    <div className={twMerge("flex flex-col flex-1 p-8 md:p-10 rounded-xl", className)}>
       {children}
     </div>
   );
@@ -168,10 +192,9 @@ const Overlay = ({
   );
 };
 
-const CloseIcon = () => {
-  const { setOpen } = useModal();
+const CloseIcon = ({setOpen}) => {
   return (
-    <button onClick={() => setOpen(false)} className="absolute top-10 right-10 z-2000 group">
+    <button onClick={() => setOpen(false)} className="absolute top-10 right-10 z-2000 group" id="menu_cross">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -182,7 +205,7 @@ const CloseIcon = () => {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="text-black dark:text-white h-4 w-4 group-hover:scale-125 group-hover:rotate-3 transition duration-200">
+        className=" h-4 w-4 group-hover:scale-125 group-hover:rotate-3 transition duration-200">
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M18 6l-12 12" />
         <path d="M6 6l12 12" />
