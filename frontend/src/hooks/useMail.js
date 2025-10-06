@@ -10,12 +10,13 @@ export const useMail = () => {
         success: "",
         fail: ""
     })
+    const backendUrl = import.meta.env.VITE_REACT_BACKEND_URL.replace(/\/+$/, "")
     async function sendMail(e){
         e.preventDefault()
         try {
             console.log("Mail saved :", mail)
             setLoadingMail(true)
-            const response = await fetch(`${import.meta.env.VITE_REACT_BACKEND_URL}/send-mail`,{
+            const response = await fetch(`${backendUrl}/send-mail`,{
                 method: "POST",
                 headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify(mail) 
