@@ -24,6 +24,11 @@ export const useMail = () => {
             if(!response.ok) throw new Error(response.message)
             
             setNotification({success: "Message sent"})
+            setMail({
+                name: "",
+                email: "",
+                message: ""
+            })
             
         } catch (error) {
             console.log("Failed to send message to user :", error.message)

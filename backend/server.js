@@ -2,7 +2,7 @@ import express from "express"
 import cors from "cors"
 import nodemailer from "nodemailer"
 import "dotenv/config"
-import { sendEmailLimit } from "./middleware/rateLimiting"
+import { sendEmailLimit } from "./middleware/rateLimiting.js"
 
 const app = express()
 const port = process.env.PORT
@@ -35,8 +35,6 @@ app.post("/send-mail", sendEmailLimit, (req, res) => {
         text: message,
         replyTo: email,
     }
-
-    console.log("Data :", transporter, mailOptions)
     
 
     transporter.sendMail(mailOptions, (error, info) => {
